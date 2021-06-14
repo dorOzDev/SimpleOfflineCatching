@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -37,6 +38,7 @@ android {
         jvmTarget = '1.8'
         freeCompilerArgs += "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi"
     }
+
 }
 
 dependencies {
@@ -54,8 +56,8 @@ dependencies {
     implementation "com.github.bumptech.glide:glide:4.11.0"
 
     // Dagger Hilt
-    implementation "com.google.dagger:hilt-android:2.31-alpha"
-    kapt "com.google.dagger:hilt-compiler:2.31-alpha"
+    implementation("com.google.dagger:hilt-android:$hilt_version")
+    kapt("com.google.dagger:hilt-android-compiler:$hilt_version")
     implementation "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03"
 
     // Coroutines
@@ -66,9 +68,9 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-gson:2.9.0"
 
     // Room
-    implementation "androidx.room:room-runtime:2.3.0-beta03"
-    kapt "androidx.room:room-compiler:2.3.0-beta03"
-    implementation "androidx.room:room-ktx:2.3.0-beta03"
+    implementation "androidx.room:room-runtime:2.4.0-alpha02"
+    kapt "androidx.room:room-compiler:2.4.0-alpha02"
+    implementation "androidx.room:room-ktx:2.4.0-alpha02"
 
     // LiveData
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.3.0"
